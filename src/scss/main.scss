@@ -1,9 +1,10 @@
 @import 'normalize';
 
 // Colors
-$c-white: "#fff";
-$c-black: "#000";
-$c-coral: "#F8475F";
+$c-white: #fff;
+$c-black: #000;
+$c-gray:  #BDBDBD;
+$c-coral: #F8475F;
 
 // Fonts
 $f-primary: 'Nunito', sans-serif;
@@ -11,7 +12,7 @@ $f-secondary: 'Lato', sans-serif;
 $f-tertiary: 'Ubuntu', sans-serif;
 
 body {
-  font-family: $font-primary;
+  font-family: $f-primary;
 }
 
 .image-responsive {
@@ -25,22 +26,67 @@ body {
   align-items: baseline;
   flex-wrap: wrap;
   background-color: #fff;
-  padding: 1rem 1.25rem;
-}
-.header-figure {
-  margin: 0;
-  &:nth-of-type(2) {
-    width: 100px;
+  padding: 1rem 1.25rem 0.7rem 1.25rem;
+  .header-figure {
+    margin: 0;
+    &:nth-of-type(2) {
+      width: 100px;
+    }
+  }
+  .header-search-container {
+    width: 100%;
+    margin-top: 1rem;
+    input[type="text"] {
+      width: 100%;
+      font: 400 0.8em $f-primary; 
+      padding: 0 0 0.2rem 0.5rem;
+      border: none;
+      border-bottom: 1px solid #000;
+      box-sizing: border-box;
+    }
   }
 }
-.header-search-container {
-  width: 100%;
-  margin-top: 1rem;
-  input[type="text"] {
-    width: 100%;
-    font: 400 0.8em $f-primary; 
-    padding: 0 0 0.2rem 0.5rem;
-    border: none;
-    border-bottom: 1px solid #000;
+
+.section-banner {
+  position: relative;
+  background-image: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+  url('./../../img/background-banner-image.jpg');
+  background-blend-mode: multiply;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 1rem 1.25rem;
+  .section-banner-text {
+    font: 600 1.4em $f-primary;
+    color: $c-white;
+    line-height: 1;
+    margin-bottom: 0;
+  }
+  .section-banner-title {
+    font: 800 1.8em $f-primary;
+    color: $c-white;
+    line-height: 1;
+    margin-top: 0.2rem;
+  }
+}
+
+.dots-items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 2rem 0 0 0;
+  list-style: none;
+  .dots-item span { 
+    display: block;
+    width: 7px;
+    height: 7px;
+    background-color: $c-gray;
+    border-radius: 100%;
+    margin: 0 0.3rem;
+  }
+  span.active {
+    background-color: $c-coral;
+    outline: none;
   }
 }
