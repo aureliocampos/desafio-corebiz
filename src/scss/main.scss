@@ -1,17 +1,18 @@
 @import 'normalize';
 
 // Colors
-$c-white: #fff;
-$c-black: #000;
-$c-coral: #F8475F;
-$c-gray:  #BDBDBD;
+$c-white     : #fff;
+$c-black     : #000;
+$c-coral     : #F8475F;
+$c-lightgray : #F2F2F2;
+$c-gray      : #BDBDBD;
 $c-mediumgray: #c0c0c0;
-$c-darkgray: #7A7A7A;
+$c-darkgray  : #7A7A7A;
 
 // Fonts
-$f-primary: 'Nunito', sans-serif;
+$f-primary  : 'Nunito', sans-serif;
 $f-secondary: 'Lato', sans-serif;
-$f-tertiary: 'Ubuntu', sans-serif;
+$f-tertiary : 'Ubuntu', sans-serif;
 
 body {
   font-family: $f-primary;
@@ -58,13 +59,13 @@ body {
   .section-banner-text {
     font: 600 1.4em $f-primary;
     color: $c-white;
-    line-height: 1;
+    line-height: 1.1;
     margin-bottom: 0;
   }
   .section-banner-title {
     font: 800 1.8em $f-primary;
     color: $c-white;
-    line-height: 1;
+    line-height: 1.1;
     margin-top: 0.2rem;
   }
 }
@@ -89,16 +90,16 @@ body {
   }
 }
 .section-products {
-  padding: 1rem 0.5rem;
+  padding: 1rem 0.5rem 2.5rem 0.5rem;
   .section-title {
     position: relative;
-    font: 900 1.5em $f-primary;
+    font: 900 1.1em $f-primary;
     color: $c-black;
     padding: 0 0.75rem;
     &:after {
       content: "";
       display: block;
-      width: 35px;
+      width: 30px;
       height: 3px;
       background-color: $c-mediumgray;
     }
@@ -138,5 +139,40 @@ body {
       border: none;
       border-radius: 5px;
     }
+  }
+}
+.section-newsletter {
+  background-color: $c-lightgray;
+  padding: 1.5rem 1rem 1rem 1rem;
+  .section-title {
+    font: 700 1.35em $f-secondary;
+    color: $c-black;
+    line-height: 1.1;
+  }
+}
+.section-newsletter-form {
+  input {
+    width: 100%;
+    font: 400 1em $f-secondary;
+    color: $c-black;
+    background-color: white;
+    padding: 1rem;
+    margin-bottom: 1.25rem;
+    border: none;
+    border-radius: 5px;
+    box-sizing: border-box;
+    &::placeholder {
+      color: #585858;
+    }
+  }
+  button {
+    width: 100%;
+    font: 400 0.9rem $f-tertiary;
+    color: white;
+    background: #000;
+    padding: 1rem;
+    outline: none;
+    border: none;
+    border-radius: 5px;
   }
 }
