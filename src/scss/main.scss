@@ -1,4 +1,5 @@
-@import 'normalize';
+@import 'partials/normalize';
+@import 'partials/media';
 
 // Colors - Variables
 $c-white     : #fff;
@@ -25,25 +26,63 @@ body {
 
 // Header
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  flex-wrap: wrap;
   background-color: #fff;
   padding: 1rem 1.25rem 0.7rem 1.25rem;
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    max-width: 1100px;
+    margin: 0 auto;
+    @include desktop {
+      align-items: center;
+    }
+  }
   .header-figure {
     margin: 0;
+    &:first-of-type {
+      @include desktop {
+        display: none;
+      }
+    }
     &:nth-of-type(2) {
       width: 100px;
+    }
+    &:nth-of-type(3) {
+      cursor: pointer;
+      @include desktop {
+        order: 4;
+      }
+    }
+  }
+  .header-login {
+    display: none;
+    cursor: pointer;
+    @include desktop {
+      display: flex;
+      justify-self: flex-start;
+      align-items: center;
+      order: 3;
+    }
+    .header-text {
+      font: 400 0.8em $f-primary;
+      color: $c-darkgray;
+      margin-left: 0.25rem;
     }
   }
   .header-search-container {
     width: 100%;
     margin-top: 1rem;
+    @include desktop {
+      width: 70%;
+      margin: 0;
+      order: 2;
+    }
     input[type="text"] {
       width: 100%;
       font: 400 0.8em $f-primary; 
-      padding: 0 0 0.2rem 0.5rem;
+      padding: 0.4rem 0 0.2rem 0.5rem;
       border: none;
       border-bottom: 1px solid #000;
       box-sizing: border-box;
@@ -61,17 +100,34 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   padding: 1rem 1.25rem;
-  .section-banner-text {
-    font: 600 1.4em $f-primary;
-    color: $c-white;
-    line-height: 1.15;
-    margin-bottom: 0;
+  @include desktop {
+    background-image: url('./../../img/background-banner-image-desktop.jpg');
+    padding: 2rem;
   }
-  .section-banner-title {
-    font: 800 1.8em $f-primary;
-    color: $c-white;
-    line-height: 1.15;
-    margin-top: 0.2rem;
+  .section-banner-content {
+    @include desktop {
+      max-width: 1100px;
+      margin: 5rem auto;
+    }
+    .section-banner-text {
+      font: 600 1.4em $f-primary;
+      color: $c-white;
+      line-height: 1.15;
+      margin-bottom: 0;
+      @include desktop {
+        font-size: 1.8em;
+      }
+    }
+    .section-banner-title {
+      font: 800 1.8em $f-primary;
+      color: $c-white;
+      line-height: 1.15;
+      margin-top: 0.2rem;
+      @include desktop {
+        font-size: 3em;
+        width: 45%;
+      }
+    }
   }
 }
 .dots-items {
@@ -98,6 +154,10 @@ body {
 // Section Products
 .section-products {
   padding: 1rem 0.5rem 2.5rem 0.5rem;
+  @include desktop {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
   .section-title {
     font: 900 1.1em $f-primary;
     color: $c-black;
@@ -108,6 +168,12 @@ body {
       width: 30px;
       height: 3px;
       background-color: $c-mediumgray;
+    }
+    @include desktop {
+      font-size: 1.3em;
+      &::after {
+        width: 60px;
+      }
     }
   }
 }
@@ -127,7 +193,7 @@ body {
     .products-price {
       font: 800 1em $f-primary;
       color: $c-black;
-      margin: 0;
+      margin: 0.5em 0 0 0;
     }
     .products-installment {
       font: 400 0.7em $f-primary;
@@ -152,13 +218,26 @@ body {
 .section-newsletter {
   background-color: $c-lightgray;
   padding: 1.5rem 1rem 1rem 1rem;
+  @include desktop {
+    padding: 1.5rem 1rem 3rem 1rem;
+  }
   .section-title {
     font: 700 1.35em $f-secondary;
     color: $c-black;
     line-height: 1.15;
+    @include desktop {
+      text-align: center;
+    }
   }
 }
 .section-newsletter-form {
+  @include desktop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 720px;
+    margin: 0 auto;
+  }
   input {
     width: 100%;
     font: 400 1em $f-secondary;
@@ -172,6 +251,10 @@ body {
     &::placeholder {
       color: #585858;
     }
+    @include desktop {
+      width: 280px;
+      margin: 0 0.25em;
+    }
   }
   button {
     width: 100%;
@@ -182,6 +265,11 @@ body {
     outline: none;
     border: none;
     border-radius: 5px;
+    cursor: pointer;
+    @include desktop {
+      width: 140px;
+      margin-left: 0.25rem;
+    }
   }
 }
 
@@ -189,28 +277,40 @@ body {
 .footer {
   background-color: $c-black;
   padding: 0.5rem 1rem;
-  .footer-location {
-    padding: 0.5rem 0;
-    .footer-title {
-      font: 700 1.1em $f-primary;
-      color: $c-white;
-      &:after {
-        content: "";
-        display: block;
-        width: 30px;
-        height: 4px;
-        background-color: $c-white;
-        margin-top: 0.5em;
-      }
+  .footer-content { 
+    @include desktop {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
     }
-    .footer-text {
-      font: 400 0.8em $f-primary;
+  }
+}
+.footer-location {
+  padding: 0.5rem 0;
+  @include desktop {
+    width: 370px;
+  }
+  .footer-title {
+    font: 700 1.1em $f-primary;
+    color: $c-white;
+    &:after {
+      content: "";
+      display: block;
+      width: 30px;
+      height: 4px;
+      background-color: $c-white;
+      margin-top: 0.5em;
+    }
+  }
+  .footer-text {
+    font: 400 0.8em $f-primary;
+    color: $c-white;
+    margin: 0.5rem 0;
+    a {
       color: $c-white;
-      margin: 0.5rem 0;
-      a {
-        color: $c-white;
-        text-decoration: none;
-      }
+      text-decoration: none;
     }
   }
 }
@@ -243,13 +343,15 @@ body {
      }
    }
 }
-
 .administrators-items {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 220px;
   margin: 2rem auto 0 auto;
+  @include desktop {
+    width: 160px;
+  }
   .administrators-item {
     margin: 0;
     .footer-small-text {
