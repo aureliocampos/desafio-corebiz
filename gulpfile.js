@@ -1,8 +1,8 @@
 const gulp = require('gulp');
 const sass = require('gulp-sass');
-const rename = require('gulp-rename');
-const uglify = require('gulp-uglify');
 const cleanCSS = require('gulp-clean-css');
+const rename = require('gulp-rename');
+const uglify = require('gulp-uglify-es').default;
 const browserSync = require('browser-sync').create();
 
 const style = {

@@ -179,16 +179,34 @@ body {
 }
 .products-items {
   display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
   .products-item {
+    width: 45%;
     text-align: center;
-    margin: 0.5rem;
+    margin: 0.8rem 0.25rem;
+    @include desktop {
+      width: 20%;
+    }
     .products-figure {
       margin: 0;
+      @include tablet {
+        height: 200px;
+      }
+    }
+    .products-info {
+      height: 130px;
     }
     .products-name {
-      font: 600 0.9em $f-primary;
+      font: 600 0.65em $f-primary;
       color: $c-darkgray;
       text-transform: uppercase;
+    }
+    .products-listprice {
+      font: 400 0.7em $f-primary;
+      color: $c-darkgray;
+      text-decoration: line-through;
+      margin: 0.2rem 0;
     }
     .products-price {
       font: 800 1em $f-primary;
@@ -210,6 +228,7 @@ body {
       outline: none;
       border: none;
       border-radius: 5px;
+      cursor: pointer;
     }
   }
 }
