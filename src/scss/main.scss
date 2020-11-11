@@ -1,0 +1,46 @@
+@import 'normalize';
+
+// Colors
+$c-white: "#fff";
+$c-black: "#000";
+$c-coral: "#F8475F";
+
+// Fonts
+$f-primary: 'Nunito', sans-serif;
+$f-secondary: 'Lato', sans-serif;
+$f-tertiary: 'Ubuntu', sans-serif;
+
+body {
+  font-family: $font-primary;
+}
+
+.image-responsive {
+  width: 100%;
+  height: auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  background-color: #fff;
+  padding: 1rem 1.25rem;
+}
+.header-figure {
+  margin: 0;
+  &:nth-of-type(2) {
+    width: 100px;
+  }
+}
+.header-search-container {
+  width: 100%;
+  margin-top: 1rem;
+  input[type="text"] {
+    width: 100%;
+    font: 400 0.8em $f-primary; 
+    padding: 0 0 0.2rem 0.5rem;
+    border: none;
+    border-bottom: 1px solid #000;
+  }
+}
