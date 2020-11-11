@@ -1,6 +1,5 @@
 const productsContainer = document.querySelector('.products-items')
-const regexValidateEmail = /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+\.([a-z]+)?$/i
-const regexValidateName = /^[a-z-A-Z\D]+$/g
+const form = document.querySelector('#form-newsletter')
 
 const getProducts = async () => {
 
@@ -86,6 +85,55 @@ const addProductsIntoDOM = async () => {
   cleanContainers('.products-installment', '.products-listprice')
 }
 
+const paragraphFeedbackMessageEmail = document.createElement('p')
+const paragraphFeedbackMessageName = document.createElement('p')
 
-addProductsIntoDOM();
+const insertFeedbackMessage = (input, text, target) => {  
+  target.setAttribute('class', 'error')
+  target.textContent = text
 
+  input.style.outline = '#D7182A auto 1px'
+  input.insertAdjacentElement('afterend', target)
+}
+const removeFeedbackMessage = input => {
+  const error = document.querySelector('.error')
+  
+  input.style.outline = 'none'
+  error.remove()
+}
+const testName = name => /^[a-z-A-Z\D]+$/g.test(name);
+const testEmail = email => /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+\.([a-z]+)?$/i.test(email);
+
+const formReset = () => {
+  form.reset()
+  form.name.focus()
+}
+
+form.addEventListener('submit', event => {
+  event.preventDefault()
+
+  const name = event.target.name
+  const email = event.target.email
+  
+})
+
+form.name.addEventListener('input', () => {
+  const isValidName = testName(name.value)
+
+  if (isValidName) {
+    removeFeedbackMessage(name)
+    return
+  }
+  insertFeedbackMessage(name, 'Preencha com seu nome completo' ,paragraphFeedbackMessageName)
+})
+
+form.email.addEventListener('input', () => {
+  const isValidEmail = testEmail(email.value)
+  if(isValidEmail) {
+    removeFeedbackMessage(email)
+    return
+  }
+  insertFeedbackMessage(email, 'Preencha com um e-mail válido', paragraphFeedbackMessageEmail)
+})
+
+addProductsIntoDOM()
